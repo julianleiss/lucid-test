@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rive Animation Demo</title>
+    <style>
+        /* Minimal CSS to center the canvas vertically and horizontally */
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #1a1a1a;
+        }
+
+        /* Canvas container styling */
+        canvas {
+            background-color: #ffffff;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Canvas element where the Rive animation will be rendered -->
+    <canvas id="rive-canvas" width="300" height="300"></canvas>
+
+    <!-- Load the official Rive Canvas runtime -->
+    <script src="https://unpkg.com/@rive-app/canvas@1.0.141"></script>
+
+    <!-- Load our main application script -->
+    <script src="main.js"></script>
+</body>
+</html>
