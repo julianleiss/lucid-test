@@ -15,7 +15,7 @@
             background-color: #1a1a1a;
         }
 
-        /* Canvas container styling */
+        /* Canvas styling */
         canvas {
             background-color: #ffffff;
             border-radius: 8px;
@@ -26,10 +26,28 @@
     <!-- Canvas element where the Rive animation will be rendered -->
     <canvas id="rive-canvas" width="300" height="300"></canvas>
 
-    <!-- Load the official Rive Canvas runtime -->
-    <script src="https://unpkg.com/@rive-app/canvas@1.0.141"></script>
+    <!-- Load the official Rive Canvas runtime (v2.x) -->
+    <script src="https://unpkg.com/@rive-app/canvas@2.21.0"></script>
 
-    <!-- Load our main application script after Rive runtime is ready -->
-    <script src="main.js"></script>
+    <!-- Initialize Rive animation inline to ensure proper load order -->
+    <script>
+        // URL to the remote Rive animation file
+        const RIVE_FILE_URL = 'https://raw.githubusercontent.com/julianleiss/lucid-test/main/5132-10323-logo-interaction.riv';
+
+        // Create Rive instance once the script loads
+        const r = new rive.Rive({
+            src: RIVE_FILE_URL,
+            canvas: document.getElementById('rive-canvas'),
+            autoplay: true,  // Automatically play on load
+            onLoad: () => {
+                console.log('Rive animation loaded!');
+                // Resize drawing surface to match canvas for crisp rendering
+                r.resizeDrawingSurfaceToCanvas();
+            },
+            onLoadError: (err) => {
+                console.error('Failed to load Rive:', err);
+            }
+        });
+    </script>
 </body>
 </html>
