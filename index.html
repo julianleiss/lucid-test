@@ -38,9 +38,12 @@
         const r = new rive.Rive({
             src: RIVE_FILE_URL,
             canvas: document.getElementById('rive-canvas'),
-            autoplay: true,  // Automatically play on load
+            autoplay: true,
+            // Enable state machine for cursor/mouse interactivity
+            stateMachines: 'State Machine 1',
             onLoad: () => {
                 console.log('Rive animation loaded!');
+                console.log('State machines:', r.stateMachineNames);
                 // Resize drawing surface to match canvas for crisp rendering
                 r.resizeDrawingSurfaceToCanvas();
             },
