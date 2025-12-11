@@ -9,10 +9,11 @@
 const RIVE_FILE_URL = 'https://raw.githubusercontent.com/julianleiss/lucid-test/main/5132-10323-logo-interaction.riv';
 
 /**
- * Initialize the Rive animation once the DOM is fully loaded.
- * We wait for DOMContentLoaded to ensure the canvas element exists.
+ * Initialize the Rive animation once all resources are fully loaded.
+ * We use 'load' event instead of 'DOMContentLoaded' to ensure the
+ * Rive runtime script has finished executing.
  */
-document.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('load', () => {
     // Get reference to the canvas element where animation will render
     const canvas = document.getElementById('rive-canvas');
 
